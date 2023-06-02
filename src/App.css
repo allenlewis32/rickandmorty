@@ -21,13 +21,16 @@
   transition: all 0.5s;
 }
 
-.card:hover {
+:not(.modalCard) > .card:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .cardContent {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  flex: 1;
   padding: 10px;
 }
 
@@ -65,11 +68,55 @@ table {
   margin-top: 10px;
 }
 
-h1 a {
-  text-decoration: none;
-  color: black;
+h1 {
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
-h1 {
-  margin: 1rem auto;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+}
+
+.modalCard {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.modalOpen{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.closeButton > svg {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.closeButton {
+  text-align: end;
+  margin-inline-end: 10px;
+  margin-top: 5px;
+}
+
+:not(.modalCard) > .card > .cardContent > .closeButton {
+  display: none;
+}
+
+.hide {
+  display: none;
 }
